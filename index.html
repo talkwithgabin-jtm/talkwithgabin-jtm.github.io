@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk with Gabin | Ontario Registered Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0e0e0e;
+      --white: #f9f8f4;
+      --accent: #c8a96e;
+      --gray: #6b6b6b;
+      --light: #f0ede6;
+      --card: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); font-size: 16px; line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid #e0ddd5; display: flex; align-items: center; justify-content: space-between; padding: 0 6vw; height: 64px; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--black); letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 4px; background: var(--light); border-radius: 999px; padding: 4px; }
+    .lang-btn { border: none; background: transparent; padding: 4px 14px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--gray); transition: all 0.2s; }
+    .lang-btn.active { background: var(--black); color: var(--white); }
+    .hero { padding: 80px 6vw 60px; max-width: 900px; }
+    .badge { display: inline-block; background: var(--light); border: 1px solid #d9d4c7; border-radius: 999px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; color: var(--gray); padding: 5px 14px; margin-bottom: 24px; text-transform: uppercase; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.12; letter-spacing: -0.03em; color: var(--black); margin-bottom: 20px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { font-size: 1.05rem; color: var(--gray); max-width: 540px; margin-bottom: 36px; font-weight: 300; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--black); color: var(--white); padding: 13px 28px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: #2a2a2a; }
+    .btn-secondary { background: transparent; color: var(--black); padding: 13px 28px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; border: 1.5px solid #d0ccc4; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: var(--black); }
+    .divider { border: none; border-top: 1px solid #e0ddd5; margin: 0 6vw; }
+    .section { padding: 64px 6vw; }
+    .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; margin-bottom: 40px; color: var(--black); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    .service-card { background: var(--card); border: 1px solid #e4e0d8; border-radius: 12px; padding: 28px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .service-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .service-icon { font-size: 1.8rem; margin-bottom: 16px; display: block; }
+    .service-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 8px; color: var(--black); }
+    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.55; font-weight: 300; }
+    .about-section { background: var(--black); color: var(--white); padding: 64px 6vw; }
+    .about-section .section-label { color: var(--accent); }
+    .about-section .section-title { color: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .about-text { font-size: 0.97rem; color: #b0aba0; line-height: 1.75; font-weight: 300; }
+    .about-text strong { color: var(--white); font-weight: 500; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-box { background: #1a1a1a; border: 1px solid #2e2e2e; border-radius: 10px; padding: 22px 20px; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 0.82rem; color: #888; font-weight: 300; }
+    .contact-section { padding: 64px 6vw; }
+    .contact-box { background: var(--light); border-radius: 16px; padding: 48px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .contact-box h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .contact-box p { color: var(--gray); font-size: 0.95rem; font-weight: 300; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--black); text-decoration: none; font-weight: 500; }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link .icon { width: 36px; height: 36px; background: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; border: 1px solid #e0ddd5; }
+    footer { border-top: 1px solid #e0ddd5; padding: 24px 6vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    footer p { font-size: 0.82rem; color: var(--gray); font-weight: 300; }
+    .ontario-badge { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--gray); }
+    .ontario-badge span { background: var(--light); border: 1px solid #d9d4c7; border-radius: 4px; padding: 2px 8px; font-size: 0.75rem; color: var(--black); font-weight: 500; }
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en [data-lang="fr"] { display: none; }
+    .l { display: none; }
+    body.en .l-en { display: inline; }
+    body:not(.en) .l-fr { display: inline; }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="logo">Talk with <span>Gabin</span></div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+<section class="hero">
+  <div class="badge">
+    <span class="l l-fr">Entreprise enregistrée en Ontario 🇨🇦</span>
+    <span class="l l-en">Ontario Registered Company 🇨🇦</span>
+  </div>
+  <h1 data-lang="fr">Des services fiables,<br>une <em>vision entrepreneuriale.</em></h1>
+  <h1 data-lang="en">Reliable services,<br>an <em>entrepreneurial vision.</em></h1>
+  <p data-lang="fr">Talk with Gabin est une entreprise ontarienne offrant des services de livraison, d'import-export et de conseil aux entrepreneurs africains de la diaspora.</p>
+  <p data-lang="en">Talk with Gabin is an Ontario-based company offering delivery services, import-export, and consulting for African diaspora entrepreneurs.</p>
+  <div class="cta-row">
+    <a href="#contact" class="btn-primary">
+      <span class="l l-fr">Nous contacter</span>
+      <span class="l l-en">Get in touch</span>
+    </a>
+    <a href="#services" class="btn-secondary">
+      <span class="l l-fr">Nos services</span>
+      <span class="l l-en">Our services</span>
+    </a>
+  </div>
+</section>
+<hr class="divider" />
+<section class="section" id="services">
+  <div class="section-label">
+    <span class="l l-fr">Ce que nous faisons</span>
+    <span class="l l-en">What we do</span>
+  </div>
+  <h2 class="section-title">
+    <span class="l l-fr">Nos services</span>
+    <span class="l l-en">Our services</span>
+  </h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🚗</span>
+      <h3 data-lang="fr">Livraison & Transport</h3>
+      <h3 data-lang="en">Delivery & Transport</h3>
+      <p data-lang="fr">Service de livraison rapide dans la région d'Etobicoke et Toronto. Fiable, ponctuel, professionnel.</p>
+      <p data-lang="en">Fast delivery service in Etobicoke and the Greater Toronto Area. Reliable, punctual, professional.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌍</span>
+      <h3 data-lang="fr">Import-Export</h3>
+      <h3 data-lang="en">Import-Export</h3>
+      <p data-lang="fr">Sourcing d'épices et produits depuis la Chine vers l'Afrique centrale (Kinshasa, RDC). Logistique et commerce international.</p>
+      <p data-lang="en">Sourcing spices and goods from China to Central Africa (Kinshasa, DRC). International trade & logistics.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💼</span>
+      <h3 data-lang="fr">Conseil aux Entrepreneurs</h3>
+      <h3 data-lang="en">Entrepreneurship Consulting</h3>
+      <p data-lang="fr">Accompagnement pour les entrepreneurs africains de la diaspora : création d'entreprise, stratégie, investissements.</p>
+      <p data-lang="en">Support for African diaspora entrepreneurs: business setup, strategy, and investment planning.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌱</span>
+      <h3 data-lang="fr">Agriculture & Investissement</h3>
+      <h3 data-lang="en">Agriculture & Investment</h3>
+      <p data-lang="fr">Développement de projets agricoles et commerciaux en RDC. Maïs, élevage caprin, commerce local.</p>
+      <p data-lang="en">Agricultural and commercial project development in the DRC. Corn farming, goat breeding, local trade.</p>
+    </div>
+  </div>
+</section>
+<hr class="divider" />
+<section class="about-section">
+  <div class="section-label">
+    <span class="l l-fr">À propos</span>
+    <span class="l l-en">About</span>
+  </div>
+  <h2 class="section-title">
+    <span class="l l-fr">Une entreprise,<br>deux continents.</span>
+    <span class="l l-en">One company,<br>two continents.</span>
+  </h2>
+  <div class="about-grid">
+    <p class="about-text" data-lang="fr"><strong>Talk with Gabin</strong> est une entreprise enregistrée en Ontario (Canada), opérant entre l'Amérique du Nord et l'Afrique centrale.<br><br>Basée à Etobicoke, nous combinons une <strong>expérience terrain au Canada</strong> avec une <strong>connaissance profonde du marché congolais</strong> pour créer des opportunités concrètes pour la diaspora africaine et ses partenaires.</p>
+    <p class="about-text" data-lang="en"><strong>Talk with Gabin</strong> is an Ontario-registered company operating across North America and Central Africa.<br><br>Based in Etobicoke, we combine <strong>hands-on Canadian experience</strong> with <strong>deep knowledge of the Congolese market</strong> to create concrete opportunities for the African diaspora and its partners.</p>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-num">ON</div><div class="stat-label" data-lang="fr">Enregistrée en Ontario</div><div class="stat-label" data-lang="en">Registered in Ontario</div></div>
+      <div class="stat-box"><div class="stat-num">4+</div><div class="stat-label" data-lang="fr">Secteurs d'activité</div><div class="stat-label" data-lang="en">Business sectors</div></div>
+      <div class="stat-box"><div class="stat-num">CA↔CD</div><div class="stat-label" data-lang="fr">Canada & RDC</div><div class="stat-label" data-lang="en">Canada & DRC</div></div>
+      <div class="stat-box"><div class="stat-num">24h</div><div class="stat-label" data-lang="fr">Réponse garantie</div><div class="stat-label" data-lang="en">Response guaranteed</div></div>
+    </div>
+  </div>
+</section>
+<section class="contact-section" id="contact">
+  <div class="contact-box">
+    <div>
+      <h2 data-lang="fr">Parlons de votre projet.</h2>
+      <h2 data-lang="en">Let's talk about your project.</h2>
+      <p data-lang="fr">Disponible pour toute collaboration, partenariat ou question.</p>
+      <p data-lang="en">Available for any collaboration, partnership or inquiry.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:contact@talkwithgabin.com" class="contact-link"><span class="icon">✉️</span>contact@talkwithgabin.com</a>
+      <a href="https://x.com" class="contact-link" target="_blank"><span class="icon">𝕏</span>@TalkWithGabin</a>
+      <a href="tel:+14160000000" class="contact-link"><span class="icon">📞</span>+1 (416) 000-0000</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>© 2025 Talk with Gabin. <span class="l l-fr">Tous droits réservés.</span><span class="l l-en">All rights reserved.</span></p>
+  <div class="ontario-badge"><span class="l l-fr">Enregistrée :</span><span class="l l-en">Registered:</span><span>Ontario, Canada</span></div>
+</footer>
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('en', lang === 'en');
+    document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', (i === 0 && lang === 'fr') || (i === 1 && lang === 'en'));
+    });
+  }
+</script>
+</body>
+</html>
